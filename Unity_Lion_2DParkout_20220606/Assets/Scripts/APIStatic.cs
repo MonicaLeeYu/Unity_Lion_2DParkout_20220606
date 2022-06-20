@@ -3,7 +3,7 @@ using UnityEngine;
 namespace MonicaLeeAPIStatic
 {
     public class APIStatic : MonoBehaviour
-    { 
+    {
         private Vector3 a = new Vector3(1, 1, 1);
         private Vector3 b = new Vector3(22, 22, 22);
 
@@ -11,7 +11,7 @@ namespace MonicaLeeAPIStatic
         {
             #region 課堂練習
             //get
-            print("隨機值= "+ Random.value);
+            print("隨機值= " + Random.value);
             print("取得PI = " + Mathf.PI);
             print("取得無限大 = " + Mathf.Infinity);
 
@@ -33,8 +33,8 @@ namespace MonicaLeeAPIStatic
             print("所有攝影機 = " + allcamerascount);
             print("應用程式的平台 = " + Application.platform);
 
-            print("物理睡眠臨界值設定為 = " + Physics.sleepThreshold );
-            
+            print("物理睡眠臨界值設定為 = " + Physics.sleepThreshold);
+
             Time.timeScale = 0.8f;
             print("時間大小設定為 0.8 (慢動作) = " + Time.timeScale);
             Mathf.Round(9.999f);
@@ -45,7 +45,7 @@ namespace MonicaLeeAPIStatic
             print("對9.999去小數點(無條件捨去) = " + Mathf.Floor(9.999f));
 
             float dist = Vector3.Distance(a, b);
-            print("<color=red>取得兩點的距離 = " + dist +"</color>");
+            print("<color=red>取得兩點的距離 = " + dist + "</color>");
 
             Application.OpenURL("https://unity.com/"); //開啟連結網址
 
@@ -58,7 +58,7 @@ namespace MonicaLeeAPIStatic
             #endregion
             //print("是否輸入任意鍵 = " + Input.anyKeyDown);
             //print("遊戲經過時間 = " + Time.timeSinceLevelLoad);
-            print("<color=lightblue>是否按下按鍵(指定為空白鍵) = " + Input.GetKeyDown(KeyCode.Space) +"</color>");
+            print("<color=lightblue>是否按下按鍵(指定為空白鍵) = " + Input.GetKeyDown(KeyCode.Space) + "</color>");
         }
     }
 }
