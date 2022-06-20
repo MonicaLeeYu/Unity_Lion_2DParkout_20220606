@@ -28,15 +28,23 @@ namespace MonicaLee
          */
         [SerializeField, Header("跑步速度"), Tooltip("角色忍者龜的跑步速度"), Range(0, 100)]
         private float speedRun = 3.5f;
-        [SerializeField, Header("跳躍高度"), Tooltip("角色忍者龜的跳躍高度"), Range(0, 3000)]
-        private float heightJump = 350;
         private Animator ani;
         private Rigidbody2D rig;
 
         #endregion
 
         #region 功能:實作該系統的複雜方法
-
+        /// <summary>
+        /// 跑步功能
+        /// </summary>
+        //方法Method, 習慣以大寫開頭命名
+        //語法 : 修飾詞 傳回型態 方法名稱(參數){程式}
+        private void Run()
+        {
+            print("跑步中~");
+            //屬性.方法 velocity 指定 new一個二維座標
+            rig.velocity = new Vector2(speedRun, rig.velocity.y); //()內可以直接給值，也可以給它屬性要調整直接在面板上調整即可
+        }
         #endregion
 
         #region 事件:程式入口
@@ -47,21 +55,24 @@ namespace MonicaLee
         private void Awake()
         {
             ani = GetComponent<Animator>();
-            rig = GetComponent<Rigidbody2D>();
+            rig = GetComponent<Rigidbody2D>();//也可以在屬性面板直接拉入
         }
         /* 開始事件: 播放遊戲時會執行一次
          * 初始化設定，例如:初始化生命值或初始化前幣值等等
          */
         private void Start()
         {
-            print("WELCOME TO MONICA GAME WORLD");//按play會在最下方的儀表板顯示
+            //print("WELCOME TO MONICA GAME WORLD");//按play會在最下方的儀表板顯示
         }
         /* 把儀錶板Console拉到Inspector下方，顯示的訊息未來會常常需要參考
          * 更新事件:大約每秒執行60次 60FPS Frame per second
          */
         private void Update()
         {
-            print("<Color=yellow> 事件執行中並設定醒目顏色 </Color>");
+            //print("<Color=yellow> 事件執行中並設定醒目顏色 </Color>");
+            //呼叫方法的語法 : 方法名稱(對應的引數);
+            Run();
+
         }
 
         #endregion

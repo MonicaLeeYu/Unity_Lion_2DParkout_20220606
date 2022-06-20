@@ -12,6 +12,8 @@ namespace MonicaLeeNonStatic //增加命名空間
         //3.確定Unity上的屬性面板非空值None，把忍者龜拖拉到turtle
         [SerializeField] //序列化
         private GameObject turtle;
+        [SerializeField] //序列化
+        private Transform startPoint;
 
         private void Start()
         {
@@ -22,6 +24,7 @@ namespace MonicaLeeNonStatic //增加命名空間
 
             print("忍者龜的啟動狀態 =" + turtle.activeInHierarchy);
             print("忍者龜的圖層 =" + turtle.layer);
+            print("起點的座標 =" + startPoint.position);
 
             //2.設定非靜態屬性，可以篩選藍色的方塊
             //語法 :
@@ -30,14 +33,19 @@ namespace MonicaLeeNonStatic //增加命名空間
             //turtle.activeInHierarchy = false; //官方網站未註明read only,但測試結果卻是read only
             turtle.layer = 4; //指定值只能是Layer裡面已存在的選項，執行時忍者龜的Layer會變成water
             turtle.tag = "Player"; //指定字串只能是Tag裡面已存在的選項，注意大小寫，執行時忍者龜的tag會變成Player
+            startPoint.position = new Vector3(0, 0, 0);
 
             //3.設定非靜態方法，可以篩選紫色的立方塊
             //語法 :
             //欄位名稱,非靜態方法 (對應的引數);
             turtle.SetActive(false); //執行時忍者龜的勾勾會被取消
-
+                       
         }
-
+        private void Update()
+        {
+            startPoint.Translate(0, 1, 0);
+            startPoint.Rotate(0, 0, 0.5f);
+        }
     }
 }
 
