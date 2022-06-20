@@ -5,7 +5,7 @@ namespace MonicaLee
     /*C#從以下的藍圖變成實體物件，步驟如下
      * 1. 點選場景上的遊戲角色物件(Game Object灰色線條方塊)
      * 2. 在Inspector最下方點選Add Component將此C#腳本名稱SystemRun掛在該物件變成元件
-     */    
+     */
     /// <summary>
     /// 跑步程式
     /// </summary>
@@ -26,7 +26,7 @@ namespace MonicaLee
          * Tooltip提示 : 可以使用中文("角色忍者龜的跑步速度")
          * Range範圍 : 僅限數值類型資料(0,100)
          */
-        [SerializeField, Header("跑步速度"), Tooltip("角色忍者龜的跑步速度"), Range(0,100)]
+        [SerializeField, Header("跑步速度"), Tooltip("角色忍者龜的跑步速度"), Range(0, 100)]
         private float speedRun = 3.5f;
         [SerializeField, Header("跳躍高度"), Tooltip("角色忍者龜的跳躍高度"), Range(0, 3000)]
         private float heightJump = 350;
@@ -68,4 +68,5 @@ namespace MonicaLee
 
     }
 }
+
 

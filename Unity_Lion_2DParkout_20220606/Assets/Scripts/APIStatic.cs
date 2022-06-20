@@ -28,15 +28,18 @@ namespace MonicaLeeAPIStatic
             print("RandomRangeInt = " + rangeInt);
             #endregion
 
-
+            //類別名稱.靜態屬性名稱
             int allcamerascount = Camera.allCamerasCount;
             print("所有攝影機 = " + allcamerascount);
             print("應用程式的平台 = " + Application.platform);
 
+            Physics.sleepThreshold = 10;
             print("物理睡眠臨界值設定為 = " + Physics.sleepThreshold);
 
             Time.timeScale = 0.8f;
             print("時間大小設定為 0.8 (慢動作) = " + Time.timeScale);
+
+            //類別名稱.靜態方法名稱(對應的引數)
             Mathf.Round(9.999f);
             print("對9.999去小數點(四捨五入) = " + Mathf.Round(9.999f));
             Mathf.Ceil(9.999f);
