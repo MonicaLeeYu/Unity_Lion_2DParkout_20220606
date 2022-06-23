@@ -10,7 +10,11 @@ public class APINonStaticHomeWork : MonoBehaviour
     [SerializeField]
     private GameObject cube;
     [SerializeField]
+    private GameObject cube2;
+    [SerializeField]
     private GameObject sphere;
+    [SerializeField]
+    private GameObject sphere2;
     [SerializeField]
     private GameObject capsule;
     [SerializeField]
@@ -23,6 +27,8 @@ public class APINonStaticHomeWork : MonoBehaviour
     private Transform sphereRotate;
     [SerializeField]
     private Rigidbody capsuleRigbdy;
+    [SerializeField]
+    private Transform cube2Rotate;
 
     // Start is called before the first frame update
     void Start()
@@ -46,7 +52,12 @@ public class APINonStaticHomeWork : MonoBehaviour
         //讓立方體看著球體旋轉
         sphereRotate.RotateAround(sphere.transform.position, Vector3.up, 100 * Time.deltaTime);//球體旋轉
         cube.transform.LookAt(sphere.transform.position, Vector3.right);//讓立方體看著球體
-        
+
+        /*讓立方體看著球體並繞著球體旋轉
+        cube2.transform.LookAt(sphere2.transform.position, Vector3.left);//讓立方體看著球體
+        cube2Rotate.RotateAround(sphere2.transform.position, Vector3.back, 10 * Time.deltaTime);//立方體繞著球體轉
+        */
+
         //讓膠囊體往上產生推力
         capsuleRigbdy.AddForce(new Vector3(0, 3, 0));
 
