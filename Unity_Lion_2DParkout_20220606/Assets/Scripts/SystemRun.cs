@@ -75,6 +75,16 @@ namespace MonicaLee
 
         }
 
+        private void OnEnable()
+        {
+            
+        }
+
+        private void OnDisable()
+        {
+            rig.velocity = Vector2.zero;
+        }
+
         #endregion
 
     }
