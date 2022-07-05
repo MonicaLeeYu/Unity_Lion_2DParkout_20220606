@@ -35,6 +35,11 @@ namespace MonicaLee
         private Color colorCheckGround = new Color(1, 0, 0.2f, 0.5f);
         [SerializeField, Header("檢查地板圖層")]
         private LayerMask layerCheckGround;
+        [SerializeField, Header("跳躍動畫參數")]
+        private string nameJump = "開關跳躍";
+        [SerializeField, Header("跳躍音效")]
+        private AudioClip soundJump;
+
         //[SerializeField]
         private Animator ani; //動畫的控制器，一個角色身上通常只會有一個
         //[SerializeField]
@@ -42,6 +47,7 @@ namespace MonicaLee
         //[SerializeField]
         private bool clickJump; // 觸發跳躍
         private bool isGround; // 碰到地板
+        private AudioSource aud;
 
         #endregion
 
@@ -76,6 +82,7 @@ namespace MonicaLee
             {
                 rig.AddForce(new Vector2(0, heightJump));
                 clickJump = false; //按一下就跳一次就好
+                aud.PlayOneShot(soundJump, Random.Range(1.7f, 2.5f));
             }
            
         }
@@ -84,6 +91,13 @@ namespace MonicaLee
             Collider2D hit = Physics2D.OverlapBox(transform.position + v3CheckGroundOffset, v3CheckGroundSize, 0, layerCheckGround);
             //print("碰到的物件 : " + hit.name); //測試觀察用，測完要註記掉
             isGround = hit;
+        }
+        /// <summary>
+        /// 更新動畫
+        /// </summary>
+        private void UpdateAnimator()
+        {
+            ani.SetBool(nameJump, !isGround);
         }
 
         #endregion
@@ -106,6 +120,7 @@ namespace MonicaLee
         {
             ani = GetComponent<Animator>();
             rig = GetComponent<Rigidbody2D>();//也可以在屬性面板直接拉入
+            aud = GetComponent<AudioSource>();
         }
         /* 開始事件: 播放遊戲時會執行一次
          * 初始化設定，例如:初始化生命值或初始化前幣值等等
@@ -123,6 +138,7 @@ namespace MonicaLee
             //呼叫方法的語法 : 方法名稱(對應的引數);
             JumpKey();
             CheckGround();
+            UpdateAnimator();
         }
 
         //跟Update不一樣，固定每秒執行50次 50FPS Frame per second
